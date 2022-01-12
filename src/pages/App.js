@@ -1,9 +1,10 @@
 import React from "react";
-//import styled from "styled-components";
+import Nav from "../components/Nav";
 
 function App() {
   return (
     <div>
+      <Nav />
       <h1>init</h1>
     </div>
   );

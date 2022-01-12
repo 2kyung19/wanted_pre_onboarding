@@ -74,26 +74,26 @@ const Picture = styled.img`
   transform: translateY(-50%);
 `;
 
+const Tag = styled.span`
+  position: absolute;
+  top: -5px;
+  left: 18px;
+  background-color: rgb(64, 101, 246);
+  width: 13px;
+  height: 13px;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 100;
+`;
+
+const Img = styled.img`
+  position: absolute;
+  width: 5px;
+  top: 4px;
+  left: 4px;
+`;
+
 const New = () => {
-  const Tag = styled.span`
-    position: absolute;
-    top: -5px;
-    left: 18px;
-    background-color: rgb(64, 101, 246);
-    width: 13px;
-    height: 13px;
-    text-align: center;
-    border-radius: 5px;
-    z-index: 100;
-  `;
-
-  const Img = styled.img`
-    position: absolute;
-    width: 5px;
-    top: 4px;
-    left: 4px;
-  `;
-
   return (
     <Tag>
       <Img src={newIcon} />

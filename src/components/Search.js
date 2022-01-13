@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import search from "../../images/search.png";
-import notification from "../../images/notification.png";
-import ellipsis from "../../images/ellipsis.png";
-import newIcon from "../../images/N.png";
-import profile from "../../images/profile.png";
+import search from "../images/search.png";
+import notification from "../images/notification.png";
+import ellipsis from "../images/ellipsis.png";
+import newIcon from "../images/N.png";
+import profile from "../images/profile.png";
 
 const Div = styled.div`
   position: relative;

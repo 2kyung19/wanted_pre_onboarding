@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { LaptopL, LaptopS, Tablet, Mobile } from "../Responsive";
+import { LaptopL, LaptopS, Tablet, Mobile } from "./Responsive";
 import { LapLSearch, LapSSearch, TablSearch } from "./Search";
-import wanted from "../../images/logo.png";
+import wanted from "../images/logo.png";
 
 // icon
 const MenuIcon = styled.img`

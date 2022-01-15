@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const Slide = styled.div`
-  width: ${(props) => props.width || `${1060 * 10 + 240}px`};
+  width: ${(props) => props.width || `${1084 * 10}px`};
   display: flex;
   overflow: hidden;
   transition: transform ${(props) => props.speed}ms;
@@ -30,7 +30,8 @@ const Img = styled.div`
   background-image: url("${(props) => props.src}");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat
+  filter: ${(props) => props.filter || "brightness(50%)"};
 `;
 
 const Description = styled.div`
@@ -38,8 +39,10 @@ const Description = styled.div`
   width: 330px;
   height: 146px;
   bottom: 28px;
-  left: 34px;
-  background-color: #ffffff;
+  left: 24px;
+  transition: opacity 200ms;
+  opacity: ${(props) => props.opacity || 0};
+  background: #ffffff;
   border-radius: 4px;
 `;
 
@@ -102,10 +105,11 @@ const SlideBtn = styled.div`
 `;
 
 const Carousel = () => {
+  const [loading, setLoad] = useState(0);
   const width = useWindowSize(); // window width size
   const [slideBoxS, setSlideBoxS] = useState(0);
   const [slideBoxL, setSlideBoxL] = useState(0);
-  const [index, setIndex] = useState(2); // start slide
+  const [index, setIndex] = useState(0); // start slide
   const [speed, setSpeed] = useState(500); // auto slide speed
   const slideS = useRef(null);
   const slideL = useRef(null);
@@ -113,11 +117,35 @@ const Carousel = () => {
   const [touchStart, setTouchStart] = useState(0); // swipe
   const [touchEnd, setTouchEnd] = useState(0); // swipe
 
+  // slide image filter & description
+  const changeSlideStyle = (now, next, later) => {
+    if (slideL.current !== null) {
+      slideL.current.children[now].children[0].style.filter = "brightness(50%)";
+      slideL.current.children[next].children[0].style.filter =
+        "brightness(100%)";
+      slideL.current.children[later].children[0].style.filter =
+        "brightness(50%)";
+
+      slideL.current.children[now].children[1].style.opacity = "0";
+      slideL.current.children[next].children[1].style.opacity = "1";
+      slideL.current.children[later].children[1].style.opacity = "0";
+    }
+    if (slideS.current !== null) {
+      slideS.current.children[now].children[0].style.filter = "brightness(50%)";
+      slideS.current.children[next].children[0].style.filter =
+        "brightness(100%)";
+      slideS.current.children[later].children[0].style.filter =
+        "brightness(50%)";
+    }
+  };
+
   const moveSlideLeft = () => {
     if (index <= 1) {
+      changeSlideStyle(index, 7, 6);
       setSpeed(0);
       setIndex(7);
     } else {
+      changeSlideStyle(index, index - 1, index - 2);
       setSpeed(500);
       setIndex(index - 1);
     }
@@ -125,9 +153,11 @@ const Carousel = () => {
 
   const moveSlideRight = () => {
     if (index >= 7) {
+      changeSlideStyle(index, 1, 2);
       setSpeed(0);
       setIndex(1);
     } else {
+      changeSlideStyle(index, index + 1, index + 2);
       setSpeed(500);
       setIndex(index + 1);
     }
@@ -148,6 +178,11 @@ const Carousel = () => {
 
   // window width -> slide box width 변경
   useEffect(() => {
+    try {
+      changeSlideStyle(index - 1, index, index + 1);
+    } catch {
+      console.log("loading!");
+    }
     if (slideS.current !== null) setSlideBoxS(slideS.current.offsetWidth / 10);
     if (slideL.current !== null) setSlideBoxL(slideL.current.offsetWidth / 10);
   }, [index, width]);
@@ -161,6 +196,12 @@ const Carousel = () => {
     return () => clearInterval(loop);
   }, [index]);
 
+  useEffect(() => {
+    if (loading < 2) {
+      moveSlideRight();
+      setLoad(loading + 1);
+    }
+  }, [loading]);
   return (
     <Container>
       <div
@@ -218,7 +259,7 @@ const Carousel = () => {
               </Center>
             </SlideBtn>
             <Slide
-              transform={slideBoxL * index - (width - 1060) / 2}
+              transform={slideBoxL * index - (width - 1084) / 2}
               ref={slideL}
               speed={speed}
             >

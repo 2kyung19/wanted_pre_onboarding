@@ -7,11 +7,6 @@ import slide6 from "../images/slide/slide_6.jpeg";
 
 const slideList = [
   {
-    src: slide6,
-    title: "포트폴리오를 부탁해!",
-    sub: "디자이너의 포폴 살펴보기",
-  },
-  {
     src: slide1,
     title: "개발자 되고싶은 분들!?",
     sub: "프론트엔드 무료 교육과정 참여하기",
@@ -41,11 +36,11 @@ const slideList = [
     title: "포트폴리오를 부탁해!",
     sub: "디자이너의 포폴 살펴보기",
   },
-  {
-    src: slide1,
-    title: "개발자 되고싶은 분들!?",
-    sub: "프론트엔드 무료 교육과정 참여하기",
-  },
 ];
+
+slideList.splice(0, 0, slideList[slideList.length - 1]);
+slideList.splice(0, 0, slideList[slideList.length - 2]);
+slideList.push(slideList[2]);
+slideList.push(slideList[3]);
 
 export { slideList };

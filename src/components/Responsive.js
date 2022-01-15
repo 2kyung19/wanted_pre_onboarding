@@ -29,23 +29,4 @@ const NotLaptop = ({ children }) => {
   return view ? children : null;
 };
 
-const CarouselL = ({ children }) => {
-  const view = useMediaQuery({ minWidth: 1200 });
-  return view ? children : null;
-};
-
-const CarouselS = ({ children }) => {
-  const view = useMediaQuery({ maxWidth: 1199 });
-  return view ? children : null;
-};
-
-export {
-  LaptopL,
-  LaptopS,
-  Tablet,
-  Mobile,
-  Laptop,
-  NotLaptop,
-  CarouselL,
-  CarouselS,
-};
+export { LaptopL, LaptopS, Tablet, Mobile, Laptop, NotLaptop };

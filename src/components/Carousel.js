@@ -157,8 +157,7 @@ const Carousel = () => {
     if (index <= 1) {
       setTimeout(() => {
         changeSlideStyle(index, 7, 6);
-      }, 300);
-
+      }, 200);
       setSpeed(0);
       setIndex(7);
 
@@ -166,7 +165,7 @@ const Carousel = () => {
         changeSlideStyle(7, 6, 5);
         setSpeed(500);
         setIndex(6);
-      }, 300);
+      }, 200);
     } else {
       changeSlideStyle(index, index - 1, index - 2);
       setSpeed(500);
@@ -176,7 +175,9 @@ const Carousel = () => {
 
   const moveSlideRight = () => {
     if (index >= 7) {
-      changeSlideStyle(index, 1, 2);
+      setTimeout(() => {
+        changeSlideStyle(index, 1, 2);
+      }, 200);
       setSpeed(0);
       setIndex(1);
 
@@ -184,7 +185,7 @@ const Carousel = () => {
         changeSlideStyle(2, 3, 4);
         setSpeed(500);
         setIndex(2);
-      }, 300);
+      }, 200);
     } else {
       changeSlideStyle(index, index + 1, index + 2);
       setSpeed(500);

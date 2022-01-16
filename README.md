@@ -66,10 +66,10 @@ index 2(1 이미지)에서 왼쪽으로 이동하여 index 1(6 이미지)를 보
 <br />
 
 ### [ navigation ]
-#### reponsive
+#### responsive
 
 nav bar의 style은 화면 너비에 따라 4가지로 구현되어 있었습니다.  
-`macOS, chrome 환경 기준`  
+`macOS, chrome 97.0.4692.71 환경`  
 <br />
 
 1. mobile 인 경우 (~ 767px)  

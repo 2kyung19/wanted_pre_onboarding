@@ -1,6 +1,6 @@
-# 원티드 프리온보딩 코스
-원티드 프리온보딩 프론트엔드 코스 선발 과제
-
+# 원티드 프리온보딩
+프론트엔드 코스 선발 과제  
+<br /> 
 ## `Netlify`
 https://serene-easley-c48d83.netlify.app/  
 <br />

@@ -107,10 +107,13 @@ const SlideBtn = styled.div`
 const Carousel = () => {
   const [loading, setLoad] = useState(0);
   const width = useWindowSize(); // window width size
+
   const [slideBoxS, setSlideBoxS] = useState(0);
   const [slideBoxL, setSlideBoxL] = useState(0);
+
+  const [slide, setSlide] = useState(false);
   const [index, setIndex] = useState(0); // start slide
-  const [speed, setSpeed] = useState(500); // auto slide speed
+  const [speed, setSpeed] = useState(0); // auto slide speed
   const slideS = useRef(null);
   const slideL = useRef(null);
 
@@ -126,6 +129,17 @@ const Carousel = () => {
       slideL.current.children[later].children[0].style.filter =
         "brightness(50%)";
 
+      if (next === 7 || next === 1) {
+        slideL.current.children[next].children[1].style.transition =
+          "opacity 0ms";
+      } else {
+        slideL.current.children[now].children[1].style.transition =
+          "opacity 200ms";
+        slideL.current.children[next].children[1].style.transition =
+          "opacity 200ms";
+        slideL.current.children[later].children[1].style.transition =
+          "opacity 200ms";
+      }
       slideL.current.children[now].children[1].style.opacity = "0";
       slideL.current.children[next].children[1].style.opacity = "1";
       slideL.current.children[later].children[1].style.opacity = "0";
@@ -141,9 +155,18 @@ const Carousel = () => {
 
   const moveSlideLeft = () => {
     if (index <= 1) {
-      changeSlideStyle(index, 7, 6);
+      setTimeout(() => {
+        changeSlideStyle(index, 7, 6);
+      }, 300);
+
       setSpeed(0);
       setIndex(7);
+
+      setTimeout(() => {
+        changeSlideStyle(7, 6, 5);
+        setSpeed(500);
+        setIndex(6);
+      }, 300);
     } else {
       changeSlideStyle(index, index - 1, index - 2);
       setSpeed(500);
@@ -156,6 +179,12 @@ const Carousel = () => {
       changeSlideStyle(index, 1, 2);
       setSpeed(0);
       setIndex(1);
+
+      setTimeout(() => {
+        changeSlideStyle(2, 3, 4);
+        setSpeed(500);
+        setIndex(2);
+      }, 300);
     } else {
       changeSlideStyle(index, index + 1, index + 2);
       setSpeed(500);
@@ -180,6 +209,9 @@ const Carousel = () => {
   useEffect(() => {
     try {
       changeSlideStyle(index - 1, index, index + 1);
+
+      setSlide(true);
+      setSpeed(0);
     } catch {
       console.log("loading!");
     }
@@ -190,7 +222,7 @@ const Carousel = () => {
   // auto slide
   useEffect(() => {
     const loop = setInterval(() => {
-      moveSlideRight();
+      if (slide) moveSlideRight();
     }, 4000);
 
     return () => clearInterval(loop);
@@ -202,6 +234,7 @@ const Carousel = () => {
       setLoad(loading + 1);
     }
   }, [loading]);
+
   return (
     <Container>
       <div

@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 코스
+원티드 프리온보딩 프론트엔드 코스 사전 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `Netlify`
+https://serene-easley-c48d83.netlify.app/  
+<br />
 
-## Available Scripts
+### `tree`
+```
+wanted_pre_onboarding/src
+│
+├── components
+│   ├── Carousel.js
+│   ├── Margin.js
+│   ├── Nav.js
+│   ├── Responsive.js
+│   ├── Search.js 
+│   └── SlideList.js
+├── hooks
+│   └── useWindowSize.js
+├── images
+│   └── slide
+├── index.css
+├── index.js
+└── pages
+    └── App.js
+```  
+<br/>
 
-In the project directory, you can run:
+### `run`
+``` npm install && npm run start```  
+<br /><br />
 
-### `npm start`
+### `function`
+#### [ carousel ]
+1. autoplay
+2. 슬라이드 transition animation
+3. description box opacity animation (~1200px)
+4. 메인 슬라이드 외에 description box opacity = 1 처리 (~1200px)
+5. 메인 슬라이드 외에 img fliter 처리
+6. slide left / right button
+7. reponsive
+    * ~ 1199px `mobile - tablet`
+        - slide width : window.width - 100px 
+        - description : slide 아래에 중앙 정렬
+    * 1200px ~ `laptop`
+        - slide width : 1060px
+        - description : slide 내에 box 생성
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### [ navigation ]
+1. reponsive
+    * ~ 767px `mobile`
+        - 메뉴 : 홈,채용,이벤트
+        - height : 110px
+    * 768 ~ 991px `tablet`
+        - 메뉴 : all
+        - height :110px
+    * 992 ~ 1100px `laptop(S)`
+        - 메뉴 정렬이 space-between 로 변경
+        - 오른쪽 상단 아이콘 부분 변경
+        - height: 50px
+    * 1101px ~ `laptop(L)`
+        - 메뉴 정렬이 다시 flex-start 정렬
+        - 오른쪽 상단 구분선 margin 변경
+        - height : 50px  
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `screen`
 
-### `npm test`
+https://user-images.githubusercontent.com/32586712/149650050-3f7b38a2-cba0-4c22-8391-f82f4d4b4897.mov
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

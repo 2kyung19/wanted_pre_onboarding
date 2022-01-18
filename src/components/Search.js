@@ -40,6 +40,9 @@ const Button = styled.button`
   text-align: center;
   vertical-align: middle;
   margin: 10px;
+  font-family: sans-serif;
+  padding-left: 0px;
+  padding-right: 0px;
 `;
 
 const Icon = styled.div`
